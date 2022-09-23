@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from 'src/pages/Home';
+import Event from 'src/pages/Event';
 import GlobalStyles from 'src/globalStyles';
 
 function App() {
@@ -9,13 +10,8 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route index element={<Home />} />
-        {/* <Route path="about" element={<About />} />
-          <Route path="dashboard" element={<Dashboard />} /> */}
-
-        {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-        {/* <Route path="*" element={<NoMatch />} /> */}
+        <Route path="event" element={<Event />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
