@@ -1,15 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import homeImg from 'src/assets/img/png/home.png';
+import Button from 'src/components/UI/Button/Button';
+import { StyledTitle } from 'src/components/styles/styledTags';
 
 type Props = {};
 
-const StyledTitle = styled.h1`
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1;
-  color: var(--primary-100);
+const StyledMain = styled.main`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+`;
+
+const StyledHomeTitle = styled(StyledTitle)`
+  font-size: 36px;
   margin-bottom: 16px;
+  text-align: center;
 `;
 
 const StyledText = styled.p`
@@ -17,6 +26,7 @@ const StyledText = styled.p`
   font-size: 16px;
   line-height: 18px;
   text-align: center;
+  color: var(--text-gray);
 `;
 
 const StyledSpan = styled.span`
@@ -28,16 +38,36 @@ const StyledSpan = styled.span`
   display: block;
 `;
 
+const StyledPicture = styled.picture``;
+
+const StyledPictureBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
 const Home = (props: Props) => {
   return (
-    <main>
-      <StyledTitle>
+    <StyledMain>
+      <StyledHomeTitle>
         Imagine if <StyledSpan>Snapchat</StyledSpan> had events.
-      </StyledTitle>
+      </StyledHomeTitle>
       <StyledText>
         Easily host and share events with your friends across any social media.
       </StyledText>
-    </main>
+
+      <StyledPictureBox>
+        <StyledPicture>
+          <source media="(min-width: 1024px)" src={homeImg} />
+          <source media="(max-width: 768px)" src={homeImg} />
+          <img src={homeImg} alt="Envited Home Page" />
+        </StyledPicture>
+
+        <Button>
+          <span>🎉 Create my event</span>
+        </Button>
+      </StyledPictureBox>
+    </StyledMain>
   );
 };
 
